@@ -8,7 +8,7 @@ RM = rm -f
 
 NAME = pipex
 
-SRC = 	main.c parse_argument.c parse_argument_utils.c utils.c\
+SRC = 	main.c parse_argument.c utils.c\
 
 OBJ = $(SRC:.c=.o)
 

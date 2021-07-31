@@ -23,18 +23,6 @@ int	main(int ac, char **av, char **ev)
 	return (0);
 }
 
-//int	main(int ac, char **av)
-//{
-//	if (ac != 5)
-//	{
-//		write(1, "Wrong number of argument.\n", 25);
-//		return (0);
-//	}
-//	char *ev[] = {"PATH=/usr/bin:/bin"};
-//	pipex(av, ev);
-//	return (0);
-//}
-
 void	pipex(char **av, char **ev)
 {
 	t_info	info;

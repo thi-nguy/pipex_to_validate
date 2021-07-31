@@ -12,31 +12,10 @@
 
 #include "pipex.h"
 
-static void print_array(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i] != NULL)
-	{
-		printf("Tab[%i]:\t|%s|\n", i, tab[i]);
-		i++;
-	}
-}
-
 int	parse_argument(t_info *info, char **av, char **ev)
 {
-	info->command_in = parse_command(av[2]); // Thay bang function khac
-	//printf("av[2] = %s\n", av[2]);
-	//print_array(info->command_in);
-	info->command_out = parse_command(av[3]); // Thay bang function khac
-	//printf("av[3] = %s\n", av[3]);
-	//print_array(info->command_out);
-	if (info->command_in == NULL || info->command_out == NULL)
-	{
-		write(1, "Problem with command syntex.\n", 30);
-		return (0);
-	}
+	info->command_in = ft_split(av[2], ' ');
+	info->command_out = ft_split(av[3], ' ');
 	info->path_command_in = get_path(info->command_in[0], ev);
 	info->path_command_out = get_path(info->command_out[0], ev);
 	if (info->path_command_in == NULL || info->path_command_out == NULL)
@@ -55,9 +34,6 @@ int	parse_argument(t_info *info, char **av, char **ev)
 			info->command_in + 1);
 	info->argument_array_out = join_array(info->path_command_out,
 			info->command_out + 1);
-
-	//print_array(info->argument_array_in);
-	print_array(info->argument_array_out);
 	return (1);
 }
 

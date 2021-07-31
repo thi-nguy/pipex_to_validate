@@ -33,22 +33,14 @@ typedef struct s_info
 	int		fd_outfile;
 }	t_info;
 
-void		pipex(char **av, char **ev);
-int	parse_argument(t_info *info, char **av, char **ev);
-char 	**parse_command(char *str);
-int     check_if_quotes_exist(char *str);
-char    **handle_quotes(char *str);
-void	alloc_word(char ***tab, char *s);
-void	ft_count_words_with_quotes(char *s, int *words);
-char    *get_one_word(char *s, int index, char c);
-void    free_memory_and_update_count(char ***tab, int *count, int *i, int sign);
-
-char	*get_path(char *cmd, char **ev);
-int		count_tab(char **tab);
-char	**join_array(char *element, char **tab);
-void	execute_command(t_info *info, char **ev);
+void	pipex(char **av, char **ev);
 void	free_memory(t_info *info);
+void	execute_command(t_info *info, char **ev);
+int		parse_argument(t_info *info, char **av, char **ev);
+char	*get_path(char *cmd, char **ev);
 char	*get_command_path(char *ev, char *command);
+char	**join_array(char *element, char **tab);
+int		count_tab(char **tab);
 void	close_fd(int *fd1, int *fd2);
 
 #endif
